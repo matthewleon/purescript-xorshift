@@ -4,7 +4,7 @@
   "authors": [
     "Matthew Leon <ml@matthewleon.com>"
   ],
-  "description": "Purescript Xorshift PRNG",
+  "description": "Purescript Xorshift32 PRNG",
   "license": "MIT",
   "repository": {
     "type": "git",

@@ -1,10 +1,11 @@
-module System.Random.Xorshift (RNGState, seed, int32) where
+module System.Random.Xorshift32 (RNGState, seed, int32) where
 
 import Data.Int.Bits ((.^.), shl, shr)
 import Data.Tuple (Tuple(..))
 
 newtype RNGState = RNGState Int
 
+-- | Note: seeding with 0 will result in only generating 0s.
 seed :: Int -> RNGState
 seed = RNGState
 

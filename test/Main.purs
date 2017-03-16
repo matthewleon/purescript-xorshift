@@ -8,7 +8,7 @@ import Data.List (length, reverse)
 import Data.List.Types (List(..), (:))
 import Data.Tuple (Tuple(..))
 
-import System.Random.Xorshift (RNGState, seed, int32)
+import System.Random.Xorshift32 (RNGState, seed, int32)
 
 main :: Eff (console :: CONSOLE) Unit
 main = do
