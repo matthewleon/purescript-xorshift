@@ -3,16 +3,17 @@ module Test.Main where
 import Prelude
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Console (CONSOLE, log)
-import Control.Monad.Eff.Console.Timer (Timer, time, timeEnd)
+import Control.Monad.Eff.Console.BrowserSpecific.Timer (time, timeEnd)
+import Control.Monad.Eff.Exception (EXCEPTION)
 import Data.List (length, reverse)
 import Data.List.Types (List(..), (:))
 import Data.Tuple (Tuple(..))
 
 import System.Random.Xorshift32 (RNGState, seed, int32)
 
-main :: Eff (console :: CONSOLE) Unit
+main :: Eff (console :: CONSOLE, exception :: EXCEPTION) Unit
 main = do
-  timer :: Timer "generation" <- time
+  timer <- time "generation"
   let ints = randomInts 100 1000000
   timeEnd timer
   log $ "generated list of " <> show (length ints) <> " random ints."
