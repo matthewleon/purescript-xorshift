@@ -10,7 +10,7 @@ import Data.List (List, length)
 import Data.Maybe (Maybe(..))
 import Data.Tuple (Tuple(..))
 import Data.Unfoldable (unfoldr)
-import System.Random.Xorshift32 (RNGState, seed, int32)
+import System.Random.Xorshift32 (int32)
 
 main :: Eff (console :: CONSOLE, exception :: EXCEPTION) Unit
 main = do
@@ -20,9 +20,10 @@ main = do
   log $ "generated list of " <> show (length ints) <> " random ints."
   where
   randomInts :: Int -> Int -> List Int
-  randomInts s = unfoldr go <<< Tuple (seed s)
+  randomInts seed length = unfoldr go (Tuple seed length)
     where
-    go :: (Tuple RNGState Int) -> Maybe (Tuple Int (Tuple RNGState Int))
+    go :: (Tuple Int Int) -> Maybe (Tuple Int (Tuple Int Int))
     go (Tuple rngState n)
-      | n > 0     = Just $ (_ `Tuple` n - 1) <$> int32 rngState
+      | n > 0     = let next = int32 rngState
+                     in Just $ Tuple next $ Tuple next $ n - 1
       | otherwise = Nothing

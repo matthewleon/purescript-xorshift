@@ -20,9 +20,7 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-prelude": "^3.0.0",
-    "purescript-integers": "^3.0.0",
-    "purescript-tuples": "^4.0.0"
+    "purescript-integers": "^3.0.0"
   },
   "devDependencies": {
     "purescript-console": "^3.0.0",
