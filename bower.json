@@ -20,12 +20,17 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-integers": "^3.0.0"
+    "purescript-integers": "^3.0.0",
+    "purescript-random": "^3.0.0",
+    "purescript-maybe": "^3.0.0"
   },
   "devDependencies": {
     "purescript-console": "^3.0.0",
     "purescript-eff": "^3.0.0",
-    "purescript-lists": "^4.0.1",
-    "purescript-console-browser-specific": "^1.0.0"
+    "purescript-unfoldable": "matthewleon/purescript-unfoldable#iterateN",
+    "purescript-arrays": "^4.2.2"
+  },
+  "resolutions": {
+    "purescript-unfoldable": "iterateN"
   }
 }
