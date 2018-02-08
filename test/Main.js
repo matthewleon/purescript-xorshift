@@ -5,7 +5,7 @@ exports.scipyChisquareImpl = function (input) {
     const script = 'test/chisquare.py';
     const encoding = 'ascii';
     const opts = {encoding: encoding, input: input};
-    const res = child_process.execFileSync('python3', [script], opts);
+    const res = child_process.execFileSync('python', [script], opts);
     console.log(res);
   };
 };

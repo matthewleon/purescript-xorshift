@@ -1,7 +1,11 @@
 language: node_js
 dist: trusty
-sudo: required
+sudo: false
 node_js: stable
+addons:
+  apt:
+    packages:
+      - "python-scipy"
 env:
   - PATH=$HOME/purescript:$PATH
 install:
